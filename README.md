@@ -35,5 +35,5 @@
 ### Para acessar o terminal do container
 `sail bash`
 
-## Para executar as migrations
+### Para executar as migrations
 `php artisan migrate`
