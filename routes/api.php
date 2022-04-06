@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToolController;
+use App\Http\Controllers\HistoricController;
+// use App\Mail\SendMailNewToolCreated;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +27,7 @@ Route::get('tool/{id}', [ToolController::class, 'show']);
 Route::post('tool', [ToolController::class, 'store']);
 Route::put('tool/{id}', [ToolController::class, 'update']);
 Route::delete('tool/{id}', [ToolController::class, 'destroy']);
+
+// Route::resource('tools', ToolController::class);
+
+Route::get('historics', [HistoricController::class, 'index']);

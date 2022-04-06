@@ -24,7 +24,7 @@ class ToolRequest extends FormRequest
     public function rules()
     {
         return [
-            'sku' => 'required',
+            'sku' => 'unique:tools',
             'name_product' => 'required',
             'quantity' => 'required'
         ];

@@ -2,6 +2,13 @@
 
 namespace App\Providers;
 
+use App\Events\DeleteTool;
+use App\Events\NewTool;
+use App\Events\UpdatedTool;
+use App\Listeners\SendEmailDeleteTool;
+use App\Listeners\SendEmailNewTool;
+use App\Listeners\SendEmailUpdatedTool;
+use App\Models\Tool;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -17,6 +24,15 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],
+        NewTool::class => [
+          SendEmailNewTool::class,
+        ],
+        UpdatedTool::class => [
+            SendEmailUpdatedTool::class,
+        ],
+        DeleteTool::class => [
+          SendEmailDeleteTool::class,
         ],
     ];
 
